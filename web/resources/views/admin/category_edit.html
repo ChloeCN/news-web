@@ -1,0 +1,29 @@
+<div class="main-title">
+    <h2>{if $id}修改{else}添加{/if}栏目</h2>
+</div>
+<div class="main-section">
+    <form action="/index.php/admin/category/save" method="POST" class="j-form">
+        <ul class="form-group form-inline">
+            <li>
+                <input type="text" class="form-control" name="name" value="{$data.name}" required>
+                <label for="">栏目名称</label>
+            </li>
+            <li>
+                <input type="number" class="form-control" name="sort" value="{$data.sort}" required>
+                <label for="">排序值</label>             
+            </li>
+            <li>
+                <input type="hidden" name="id" value="{$id}">
+                <input type="submit" value="提交表单" class="btn btn-primary">
+                <a href="/index.php/admin/category/index" class="btn btn-default">返回列表</a>
+                <label for=""></label>    
+            </li>
+        </ul>
+    </form>
+</div>
+<script>
+    main.menuActive('category');
+    main.ajaxForm('.j-form',function(){
+        main.content('/index.php/admin/category/index');
+    })
+</script>

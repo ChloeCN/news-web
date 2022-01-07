@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{$title} - 高校新闻网</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/common.js"></script>
+</head>
+<body>
+    <!-- 页面顶部 -->
+    <div class="top">
+        <div class="top-container">
+            <div class="top-logo">
+                <a href="./">
+                    <img src="/static/images/logo.png" alt="内容管理系统">
+                </a>
+            </div>
+            <div class="top-nav">
+                <a href="/" class="{if $id ==0}curr{/if}">首页</a>
+                {foreach $category as $v}
+                <a href="/?id={$v.id}" class="{if $id==$v.id}curr{/if}">{$v.name}</a>
+                {/foreach}
+            </div>
+            <div class="top-toggle jq-toggle-btn"><i></i><i></i><i></i></div>
+        </div>
+    </div>
+    <!-- 页面内容 -->
+    <div class="main">
+        {block name=content}{/block}
+    </div>
+    <!-- 页面尾部 -->
+    <div class="footer">高校新闻网 版权所有 陈泳羽 <a href="/index.php/admin/login/index">后台管理</a></div>
+</body>
+</html>
